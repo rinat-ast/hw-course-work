@@ -45,9 +45,7 @@ public class Employee {
         if (this == o) {
             return true;
         }
-        if (this == null) {// если в массиве есть null
-            return false;
-        }
+
         if (o == null || getClass() != o.getClass()) {
             return false;
         }
@@ -62,7 +60,7 @@ public class Employee {
         return "Сотрудник: " + fullName + ". Работает в департаменте №" + department + ".  Зарплата: " + salary + " денег. id=" + id;
     }
 
-    public  void printShortInfo() {
+    public void printShortInfo() {
         System.out.println(fullName + ". Зарплата " + salary + " денег.");
     }
 }

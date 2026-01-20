@@ -25,18 +25,15 @@ public class EmployeeBook {
     // метод нахождения средних значений зарплат------------------8.2
     public int calculateAverageOfSalary() {
         int count = 0;
+        int sum = 0;
         for (Employee employee : EMPLOYEES) {
             if (employee != null) {//тут есть вопрос!
+                sum += employee.getSalary();
                 count++;
             } else {
                 break;
             }
         }
-        int sum = 0;
-        for (int i = 0; i < count-1; i++) {
-            sum += EMPLOYEES[i].getSalary();
-        }
-
         return sum / count;
     }
 
@@ -44,7 +41,6 @@ public class EmployeeBook {
     public void calculateTax(String taxMode) {
         for (Employee employee : EMPLOYEES) {
             if (employee == null) {
-
                 continue;
             }
             switch (taxMode) {
@@ -68,6 +64,7 @@ public class EmployeeBook {
         }
 
     }
+
     //Получить в качестве параметра номер отдела (1–5) и проиндексировать зарплату--------------8.4
     // всех сотрудников отдела на процент, который приходит в качестве параметра
     // (то есть вызвать изменение зарплаты у всех сотрудников на величину аргумента в процентах).
@@ -76,7 +73,7 @@ public class EmployeeBook {
             if (employee == null) {
                 continue;
 
-            }else if (employee.getDepartment() == department) {
+            } else if (employee.getDepartment() == department) {
                 employee.setSalary(employee.getSalary() * (100 + volume) / 100);
             } else {
                 continue;
@@ -92,7 +89,7 @@ public class EmployeeBook {
             if (employee == null) {
                 continue;
 
-            }else if (employee.getDepartment() == department && employee.getSalary() > salary) {
+            } else if (employee.getDepartment() == department && employee.getSalary() > salary) {
                 employee.printShortInfo();
                 System.out.println("id Сотрудника: " + employee.getId());
                 break;
@@ -108,7 +105,7 @@ public class EmployeeBook {
         int count = 0;//для подсчёта employeeNumber
         int arrCount = 0;//
 
-        while (arrCount<EMPLOYEES.length-1) {
+        while (arrCount < EMPLOYEES.length - 1) {
             if (EMPLOYEES[arrCount] == null) {
                 continue;
             }
@@ -145,6 +142,7 @@ public class EmployeeBook {
         }
         return booleanEquals;
     }
+
     //Добавьте метод наполнения EmployeeBook метод должен найти свободную --9
 // ячейку в массиве и положить в нее данные нового сотрудника.
     public boolean addEmployee(Employee newEmployee) {

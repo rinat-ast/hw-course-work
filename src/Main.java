@@ -4,7 +4,7 @@ import java.util.Random;
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    private final static  Random RANDOM = new Random();
+    private final static Random RANDOM = new Random();
     private final static String[] NAMES = {"Александр", "Михаил", "Дмитрий", "Сергей", "Андрей",
             "Алексей", "Евгений", "Иван", "Владимир", "Николай"};
     private final static String[] SURNAMES = {"Иванов", "Петров", "Сидоров", "Смирнов", "Кузнецов",
@@ -31,7 +31,7 @@ public class Main {
         // Они в  Employee[] EMPLOYEES. т.е в массиве с Классом Employee
 
         EmployeeBook book = new EmployeeBook(EMPLOYEES);
-        EMPLOYEES[4] = null;// проверка кода с null в массиве
+//        EMPLOYEES[4] = null;// проверка кода с null
         System.out.println("EMPLOYEES[4] = " + EMPLOYEES[4]);
 
         System.out.println(" ");
@@ -53,21 +53,21 @@ public class Main {
 
         System.out.println(" ");
         System.out.println(Arrays.toString(EMPLOYEES));
-        book.changeSalary(3,5);
+        book.changeSalary(3, 5);
         System.out.println("______тут повысилась зарплата_____________");
         System.out.println(Arrays.toString(EMPLOYEES));
 
         System.out.println(" ");
         System.out.println("___поиск сотрудника с большей зарплатой__printShortInfo();_");
-        book.findEmployee(2,100);
+        book.findEmployee(2, 100);
 
         System.out.println(" ");
         System.out.println("__поиск сотрудников с меньшей зарплатой___");
-        book.findPoorEmployee(200,3);
+        book.findPoorEmployee(200, 3);
 
         System.out.println(" ");
         System.out.println("______метод на сравнение сотрудников______");
-        Employee  donald = new Employee("donald", 1, 40000);
+        Employee donald = new Employee("donald", 1, 40000);
         System.out.println("equalsEmployees(donald) = " + book.equalsEmployees(donald));
         System.out.println("equalsEmployees(EMPLOYEES[7]) = " + book.equalsEmployees(EMPLOYEES[2]));
 
