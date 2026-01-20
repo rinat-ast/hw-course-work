@@ -12,27 +12,25 @@ public class Main {
     private final static String[] PATRONYMICS = {"Александрович", "Михайлович", "Дмитриевич", "Сергеевич",
             "Андреевич", "Алексеевич", "Евгеньевич", "Иванович", "Владимирович", "Николаевич"};
 
-    private final static Employee[] EMPLOYEES = new Employee[10];
+    private final static Employee[] EMPS = new Employee[10];
 
 
     public static void initEmployees() {
-        for (int i = 0; i < EMPLOYEES.length; i++) {
+        for (int i = 0; i < EMPS.length; i++) {
             String fullName = SURNAMES[RANDOM.nextInt(0, SURNAMES.length)] + " " +
                     NAMES[RANDOM.nextInt(0, NAMES.length)] + " " +
                     PATRONYMICS[RANDOM.nextInt(0, PATRONYMICS.length)];
-            EMPLOYEES[i] = new Employee(fullName, RANDOM.nextInt(1, 6), RANDOM.nextInt(50, 450));
+            EMPS[i] = new Employee(fullName, RANDOM.nextInt(1, 6), RANDOM.nextInt(50, 450));
         }
-
     }
 
     public static void main(String[] args) {
 
-        initEmployees();//Тут вызвали метод. Он скрафтил сотрудников.
-        // Они в  Employee[] EMPLOYEES. т.е в массиве с Классом Employee
+        initEmployees();
 
-        EmployeeBook book = new EmployeeBook(EMPLOYEES);
-//        EMPLOYEES[4] = null;// проверка кода с null
-        System.out.println("EMPLOYEES[4] = " + EMPLOYEES[4]);
+        EmployeeBook book = new EmployeeBook(EMPS);
+        EMPS[4] = null;// проверка кода с null
+        System.out.println("EMPLOYEES[4] = " + EMPS[4]);
 
         System.out.println(" ");
         book.print();
@@ -42,20 +40,16 @@ public class Main {
         System.out.println("calculateAverageOfSalary() = " + book.calculateAverageOfSalary());
         System.out.println("=======================================");
 
-//        System.out.println("empBook.calculateAverageOfSalary() = " + empBook.calculateAverageOfSalary());
-
         System.out.println(" ");
         System.out.println("_________налоги_________________________");
         book.calculateTax("PROGRESSIVE");
         System.out.println("=======================================");
-//        empBook.calculateTax("PROGRESSIVE");
-
 
         System.out.println(" ");
-        System.out.println(Arrays.toString(EMPLOYEES));
+        System.out.println(Arrays.toString(EMPS));
         book.changeSalary(3, 5);
         System.out.println("______тут повысилась зарплата_____________");
-        System.out.println(Arrays.toString(EMPLOYEES));
+        System.out.println(Arrays.toString(EMPS));
 
         System.out.println(" ");
         System.out.println("___поиск сотрудника с большей зарплатой__printShortInfo();_");
@@ -63,18 +57,18 @@ public class Main {
 
         System.out.println(" ");
         System.out.println("__поиск сотрудников с меньшей зарплатой___");
-        book.findPoorEmployee(200, 3);
+        book.findPoorEmployee(400, 3);
 
         System.out.println(" ");
         System.out.println("______метод на сравнение сотрудников______");
         Employee donald = new Employee("donald", 1, 40000);
         System.out.println("equalsEmployees(donald) = " + book.equalsEmployees(donald));
-        System.out.println("equalsEmployees(EMPLOYEES[7]) = " + book.equalsEmployees(EMPLOYEES[2]));
+        System.out.println("equalsEmployees(EMPLOYEES[7]) = " + book.equalsEmployees(EMPS[2]));
 
         System.out.println(" ");
         System.out.println("__метод на добавление нового сотрудника__");
         System.out.println("addEmployee(donald) = " + book.addEmployee(donald));
-        System.out.println(Arrays.toString(EMPLOYEES));// это для проверки добавления
+        System.out.println(Arrays.toString(EMPS));// это для проверки добавления
 
         System.out.println(" ");
         System.out.println("---метод для получения сотрудника по id--");
